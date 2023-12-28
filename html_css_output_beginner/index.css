@@ -1,0 +1,182 @@
+/* ヘッダー */
+header{
+  width:50%;
+  margin:0 auto;
+}
+
+.lists{
+  display:flex;
+  justify-content: space-between;
+  margin:10px 0;
+}
+
+.lists ul{
+  list-style: none;
+  margin:0;
+}
+
+.lists-right{
+  display: flex;
+}
+
+.list{
+  margin-right:25px;
+}
+
+#container{
+  width:960px;
+  padding:0 4%;
+  margin:0 auto;
+}
+
+.active{
+  background-color:#000;
+  color:#fff;
+  padding:3px 10px;
+}
+/* メイン　*/
+
+#main-img-content{
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+#main-img{
+  width:1920px !important;
+  height:600px;
+  object-fit: cover;
+}
+
+h1{
+  display:inline-block;
+  border-bottom:1px solid #000;
+}
+
+/* 自己紹介 */
+#introduce{
+  text-align:center;
+  margin-top:50px;
+}
+
+#introduce-text{
+  font-weight:bold;
+}
+
+.introduce-description{
+  display: flex;
+  justify-content:center;
+}
+
+#introduce-img{
+  border-radius: 100%;
+  width:120px;
+  height:120px;
+}
+.content-left{
+  width:60%;
+}
+
+.content-left p{
+  text-align: left;
+}
+/* プロフィール */
+#profile{
+  margin-top:70px;
+  margin-bottom:100px;
+  text-align:center;
+}
+
+#profile-content{
+  display:flex;
+  margin-top:20px;
+}
+
+.box{
+  width:33%;
+  margin:0 1%;
+}
+
+.box img{
+  width:100%;
+}
+
+.textTitle{
+  font-weight: bold;
+}
+
+/* フッター */
+footer{
+  border-bottom:1px solid black;
+  text-align:center;
+  padding-bottom:8px;
+}
+
+	/* 600px以下に適用されるCSS（スマホ用） */
+@media screen and (max-width: 600px) {
+
+  header{
+    width:100%;
+  }
+
+  .lists{
+    justify-content: center;
+    padding:0;
+  }
+
+  .lists ul{
+    padding-left:0;
+  }
+  
+  .list{
+    margin:0 10px;
+  }
+
+  #main-img {
+    object-fit: contain;
+  }
+
+  #container{
+    width:100%;
+    padding:0;
+  }
+
+  h1{
+    margin-bottom:50px;
+  }
+
+  .introduce-description{
+    display:block;
+    margin:0 auto;
+  }
+
+  #profile-content{
+    display:block;
+  }
+
+  #profile-content .box{
+    width:100%;
+    margin:0;
+  }
+
+  #main-img-content{
+    display:flex;
+    justify-content: center;
+    overflow-x:hidden;
+  }
+  .content-left{
+    width:100%;
+  }
+
+  .content-left #introduce-text{
+    text-align:center;
+  }
+
+  .introduce-description{
+    margin:0 auto;
+    padding: 0 9%;
+  }
+
+  footer{
+    border-bottom:8px solid black;
+  }
+}
