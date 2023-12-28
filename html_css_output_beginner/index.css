@@ -8,6 +8,7 @@ header{
   display:flex;
   justify-content: space-between;
   margin:10px 0;
+  align-items: center;
 }
 
 .lists ul{
@@ -17,10 +18,7 @@ header{
 
 .lists-right{
   display: flex;
-}
-
-.list{
-  margin-right:25px;
+  gap:25px;
 }
 
 #container{
