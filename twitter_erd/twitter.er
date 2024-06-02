@@ -7,7 +7,7 @@
 
 [user_profiles]
   *id {label: "bigint, not null"}
-  user_id {label: "bigint, not null, FK(user_logins)"}
+  user_logins_id {label: "bigint, not null, FK(user_logins)"}
   tell {label: "varchar, null, uniq"}
   name {label: "varchar, null"}
   self_introduction {label: "varchar, null"}
