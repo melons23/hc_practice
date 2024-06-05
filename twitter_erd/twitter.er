@@ -1,0 +1,89 @@
+[users]
+  *id {label: "bigint, not null"}
+  email {label: "varchar, not null, uniq"}
+  password {label: "varchar, not null, uniq"}
+  created_at { label: "datatime, not null"}
+  updated_at { label: "datatime, not null"}
+
+[user_profiles]
+  *id {label: "bigint, not null"}
+  user_id {label: "bigint, not null, FK(users)"}
+  tell {label: "varchar, null, uniq"}
+  name {label: "varchar, null"}
+  self_introduction {label: "varchar, null"}
+  place {label: "varchar, null"}
+  website {label: "varchar, null"}
+  birth {label: "date, null"}
+  profile_img {label: "varchar, null"}
+  avatar_img {label: "varchar, null"}
+  created_at { label: "datatime, not null"}
+  updated_at { label: "datatime, not null"}
+
+[tweets]
+  *id {label: "bigint, not null"}
+  content {label: "varchar, not null"}
+  user_id {label: "bigint, not null, FK(users)"}
+  created_at { label: "datatime, not null"}
+  updated_at { label: "datatime, not null"}
+
+[retweets]
+  *id {label: "bigint, not null"}
+  tweet_id {label: "bigint, not null, FK(tweets)"}
+  user_id {label: "bigint, not null, FK(users)"}
+  created_at { label: "datatime, not null"}
+  updated_at { label: "datatime, not null"}
+
+[goods]
+  *id {label: "bigint, not null"}
+  tweet_id {label: "bigint, not null, FK(tweets)"}
+  user_id {label: "bigint, not null, FK(users)"}
+  created_at { label: "datatime, not null"}
+  updated_at { label: "datatime, not null"}
+
+[user_follows]
+  *id {label: "bigint, not null"}  
+  follower_id {label: "bigint, not null, FK(users)"}
+  followee_id {label: "bigint, not null, FK(users)"}
+  created_at { label: "datatime, not null"}
+  updated_at { label: "datatime, not null"}
+
+[chat_rooms]
+  *id {label: "bigint, not null"}
+  created_at { label: "datatime, not null"}
+  updated_at { label: "datatime, not null"}
+
+[chats]
+  *id {label: "bigint, not null"}
+  chat_room_id {label: "bigint, not null, FK(chat_rooms)"}
+  content {label: "varchar, not null"}
+  user_id {label: "bigint, not null, FK(users)"}
+  send_datetime {label: "datatime, not null"}
+  created_at { label: "datatime, not null"}
+  updated_at { label: "datatime, not null"}
+
+[bookmarks]
+  *id {label: "bigint, not null"}
+  tweet_id {label: "bigint, not null, FK(tweets)"}
+  user_id {label: "bigint, not null, FK(users)"}
+  created_at { label: "datatime, not null"}
+  updated_at { label: "datatime, not null"}
+
+# Cardinality    Syntax
+# 0 or 1         ?
+# exactly 1      1
+# 0 or more      *
+# 1 or more      +
+
+# ユーザー関連
+users 1--? user_profiles
+users 1--* user_follows
+users 1--* retweets
+users 1--* goods
+users 1--* chat_rooms
+users 1--* bookmarks
+
+# tweet関連
+users 1--* tweets
+
+# チャット関連
+chat_rooms 1--+ chats
